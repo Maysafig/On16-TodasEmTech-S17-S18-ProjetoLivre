@@ -57,7 +57,8 @@ Bora deixar nossa documentaçao mais visual? <br>
 
 7. Vamos lá no nosso app.js e adicionaremos o seguinte código: <br>
 
-``` const swaggerUi = require('swagger-ui-express');
+``` 
+    const swaggerUi = require('swagger-ui-express');
 
     const swaggerFile = require('../swagger/swagger_output.json');
 
@@ -66,32 +67,21 @@ Bora deixar nossa documentaçao mais visual? <br>
 
 8. Em seguida, inicializaremos nosso projeto, é so digitar no terminal: <br>
 
-`npm start`
+```$ npm start```
 
 9. Feito isso, acessaremos a nossa rota  <br>
 
-`localhost:3000/minha-rota-de-documentacao` <br>
+```localhost:3000/minha-rota-de-documentacao``` <br>
 
 PS: Estou usando a porta 3000, caso vc esteja usando alguma diferente, use ela, beleza? <br> <br>
 
 
-### * Deploy & Heroku <br>
-Bora deployar? <br> <br>
-![vamo faze oq](https://media.giphy.com/media/TidHfACqQif3q/giphy.gif) <br>
-1. Iremos conectar nosso repositório com o heroku, para isso precisaremos criar uma conta no (heroku)[https://www.heroku.com],
-e criar o primeiro app clicando no botão _"new"_.
+### * Deploy & Heroku
 
-2. Coloque o nome do seu projeto e escolha a região em que o seu projeto ficará, pode escolher os EUA ou Europa, não faz diferença nesse caso. <br>
-![imagem](https://raw.githubusercontent.com/analuizasampaio/on12-s18-deploy-projeto-final/main/imagens_tutorial/Untitled%202.png)
+Bora deployar? <br>
 
-3. Na area de deploy conecte-se à sua conta no Github como método de deployment.
 
-4. Em seguida, encontre o github do projeto que você deseja dar deploy, e entao escolha qual branch deseja dar deploy.
-![imagem](https://raw.githubusercontent.com/reprograma/On16-TodasEmTech-S17-S18-ProjetoLivre/main/material/reponame.png)
-
-#### Agora bora la no projeto de novoooo, ta bom?! 
-
-Após criar sua conta no Heroku e conectar seu repositório com o Heroku, algumas mudanças devem ser feitas no seu projeto. <br>
+#### Antes de tudo, precisamos realizar algumas mudanças no seu projeto <br>
 
 Primeiramente, precisamos criar um arquivo chamado _Procfile_. 
 
@@ -109,36 +99,113 @@ Dentro desse arquivo vamos digitar:
  
  ![img](https://raw.githubusercontent.com/reprograma/On16-TodasEmTech-S17-S18-ProjetoLivre/main/material/procfileinside.png) <br>
 
-#### Conectando o Cluster com o projeto no Heroku
+Beleza, May! E agora? <br>
 
-Feito isso, voltaremos para o app do Heroku e iremos na aba de Settings. 
-Nós vamos adicionar as variáveis de ambiente necessárias para o projeto. 
-Em Settings vamos para a área de Config Vars <br>
-
-Vamos criar as variáveis de ambiente do projeto, em Config Vars clicamos em Reveal Config Vars. 
-Teremos então o campo de KEY (chave) e o campo de VALUE (valor), nele colocaremos a chave e o valor criado por nós no arquivo de configuração do banco de dados do seu projeto a MONGODB_URI <br>
-![alt](https://raw.githubusercontent.com/reprograma/On16-TodasEmTech-S17-S18-ProjetoLivre/main/material/configvar.png) <br>
-Depois de adicionar o nome da variável e o valor clicamos em add
-Se você tem outras variáveis de ambiente no seu .env, como o SECRET, PORT ou qualquer outra que seu projeto dependa pra funcionar você também deve fazer esse processo de adicionar nas config vars as chaves e os valores correspondentes.
-
-Fez todos os passos? Seu código ta sem erro?
+Fez todos os passos anteriores? Seu código ta sem erro?
 Vamo deployar pra ver se ta tudo ok? 
 
 Primeiro, você vai precisar subir as alterações feitas no seu projeto:
-
+```
           git add .
          (pra adicionar os arquivos alterados)
           git commit -m 'meu commit'
          (pra commitar os arquivos alterados)
           git push origin minha-branch
          (pra subir pro repositorio os arquivos alterados)
+```
+ 
+Feito isso, vamos conhecer nosso amigo Heroku! <br>
 
-Depois disso, voltaremos no app do Heroku e acessaremos a aba de Deploy. Seguiremos para Manual Deploy(fica la no final da pagina), selecionaremos a branch e entao clicaremos em Deploy Branch <br>
+![vamo faze oq](https://media.giphy.com/media/TidHfACqQif3q/giphy.gif) <br>
+
+
+1. Iremos conectar nosso repositório com o heroku, para isso precisaremos criar uma conta no [heroku](https://www.heroku.com),
+e criar o primeiro app clicando no botão _"new"_.
+
+2. Coloque o nome do seu projeto e escolha a região em que o seu projeto ficará, pode escolher os EUA ou Europa, não faz diferença nesse caso. <br>
+![imagem](https://raw.githubusercontent.com/analuizasampaio/on12-s18-deploy-projeto-final/main/imagens_tutorial/Untitled%202.png)
+
+3. Na area de deploy conecte-se à sua conta no Github como método de deployment.
+
+4. Em seguida, encontre o github do projeto que você deseja dar deploy, e entao escolha qual branch deseja dar deploy.
+![imagem](https://raw.githubusercontent.com/reprograma/On16-TodasEmTech-S17-S18-ProjetoLivre/main/material/reponame.png)
+
+
+#### Conectando o Cluster com o projeto no Heroku
+
+Agora, lá na aba Settings, vamos adicionar as variáveis de ambiente necessárias para o projeto. <br>
+Em Settings vamos para a área de Config Vars <br>
+
+Vamos criar as variáveis de ambiente do projeto, em Config Vars clicamos em Reveal Config Vars. 
+Teremos então o campo de KEY (chave) e o campo de VALUE (valor), nele colocaremos a chave e o valor criado por nós no arquivo de configuração do banco de dados do seu projeto a MONGODB_URI <br>
+![alt](https://raw.githubusercontent.com/reprograma/On16-TodasEmTech-S17-S18-ProjetoLivre/main/material/configvar.png) <br>
+Depois de adicionar o nome da variável e o valor clicamos em add
+Se você tem outras variáveis de ambiente no seu .env, como o SECRET, PORT ou qualquer outra que seu projeto dependa pra funcionar você também deve fazer esse processo de adicionar nas config vars as chaves e os valores correspondentes. <br>
+
+
+Depois disso, voltaremos acessaremos a aba de Deploy novamente. Seguiremos para Manual Deploy(fica la no final da pagina), selecionaremos a branch e entao clicaremos em Deploy Branch <br>
 ![alt](https://raw.githubusercontent.com/analuizasampaio/on12-s18-deploy-projeto-final/main/imagens_tutorial/Untitled%207.png) <br>
 
 Em seguida, um terminalzinho aparecerá para você. <br>
 ![alt](https://github.com/analuizasampaio/on12-s18-deploy-projeto-final/raw/main/imagens_tutorial/Untitled%208.png) <br>
 Mas logo ele vai ficar todo verdinho <br> ![alt](https://github.com/analuizasampaio/on12-s18-deploy-projeto-final/raw/main/imagens_tutorial/Untitled%209.png) <br> e você pode clicar em View, para abrir sua linda api. <br>
 
+### Dicas da May
+1. Ative o deploy automático para que toda vez que vc der push nessa branch as modificações automaticamente sejam atualizadas
 
-Deu certo? Parabéns! Nossa rota está no ar! 🎊
+2. Lembre-se de conferir se na aba de 'Settings' tem 'Node.js' no seu buildpack. <br>
+Ih, May! Checkei e não tem, o que faço? Você vai clicar em 'add buildpack' e selecionar um dos buildbacks oficiais ou a URL, no caso do Node.js é só selecionar o ícone dele e salvar em 'Save changes'.
+
+3. Confiram se as variáveis de ambiente estão configuradas certinhas. (As que voce colocar no Heroku devem estar iguais a que está no seu arquivo .env)
+
+4. Confira se você está usando a palavra PORT pra identificar a porta, o Heroku so reconhece se for PORT, evite usar DB_PORT, DATA_BASE_PORT, CONFIG_PORT ou algo do tipo. <br>
+
+May, fiz todo o passo a passo mas ainda tá dando erro: vem no [SAC da May](https://wa.me/+5581992584285)! Vamos resolver essa bronca :purple_heart:
+
+Deu certo? Parabéns! Nossa rota está no ar! 🎊 <br>
+
+A arquitetura do projeto final, vai ficar parecida com essa aqui que a [Gaia](https://github.com/Gaia-Maria) criou pra gente: <br>
+
+```
+ARQUITETURA MVC - EXEMPLO (adapte para o seu projeto)
+
+  📁 PROJETOFINAL (essa é a pasta raiz) 
+  | 
+  |-  📁 node_modules ( dentro da pasta raiz)
+  |
+  |-  📁 Swagger (dentro da pasta raiz)
+  |         |- 📄 Swagger.json 
+  |
+  |-  📁 src (dentro da pasta raiz)
+  |    |
+  |    |- 📁 database  (dentro src)
+  |         |- 📄 mongooseConnect.js  
+  |
+  |    |- 📁 controllers  (dentro src)
+  |         |- 📄 xController.js  
+  |         |- 📄 yController.js  
+  |  
+  |    |- 📁 models (dentro src)
+  |         |- 📄 xModel.js  
+  |         |- 📄 yModel.js  
+  |  
+  |    |- 📁 routes  (dentro src)
+  |         |- 📄 xRoutes.js   
+  |         |- 📄 yRoutes.js 
+  |
+  |    |- 📁 test (dentro src)
+  |         |- 📄 x.test.js
+  |
+  |    |- 📄 app.js (dentro src)
+  |
+  |- 📄 Procfile (pasta raiz - esse é o heroku gatinhas)
+  |- 📄 Swagger.js (pasta raiz)
+  |- 📄 .eslintrc (pasta raiz) - surge depois de *Escolhas do ESlint* (instalação acima))
+  |- 📄 .env (pasta raiz
+  |- 📄 .env.example (pasta raiz)
+  |- 📄 .gitignore  (pasta raiz)
+  |- 📄 package-lock.json  (pasta raiz)
+  |- 📄 pakage.json (pasta raiz)
+  |- 📄 README.md  (pasta raiz)
+  |- 📄 server.js  (pasta raiz)
+```

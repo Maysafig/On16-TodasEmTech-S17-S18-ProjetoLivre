@@ -1,7 +1,7 @@
 {
-  "name": "maeTech-API",
+  "name": "maetech-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "🎵  oooooh aonde nós chegooou! valeu a pena esperaaaar! 🎵 <br> <br>",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
